@@ -1,0 +1,1 @@
+slmgr/xpr to check window activation
