@@ -1,0 +1,118 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{gensymb}
+
+\singlespacing
+
+\usepackage[cmex10]{amsmath}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+\DeclareMathOperator*{\Res}{Res}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+\newcommand{\bignorm}[1]{\Bigl \| #1 \Bigr \| #1}
+\newcommand{\norm}[1]{\| #1 \|}
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+
+
+\begin{document}
+\begin{center}
+\huge Assignment 2\\
+
+\large Matish Singh Tanwar\\
+\large AI20MTECH11005\\
+\end{center}
+\vspace{1.0cm}
+\begin{abstract}
+This document finds the equation of a plane which is at a distance of 7 units from origin and normal to $\begin{pmatrix}3\\5\\-6\end{pmatrix}$
+\end{abstract}
+\vspace{0.5cm}
+Download all python codes from 
+\begin{lstlisting}
+https://github.com/Matish007/Matrix-Theory-EE5609-/tree/master/Assignment_2/codes
+\end{lstlisting}
+%
+and latex-tikz codes from 
+\begin{lstlisting}
+https://github.com/Matish007/Matrix-Theory-EE5609-/tree/master/Assignment_2
+\end{lstlisting}
+%
+\vspace{0.5mm}
+\section{Problem}
+Find the equation of a plane which is at a distance of 7 units from origin and normal to $\begin{pmatrix}3\\5\\-6\end{pmatrix}$
+$\mathbf{n}$=$\begin{pmatrix}3\\5\\-6\end{pmatrix}$\\
+\section{Explanation}
+First calculate the unit vector of given normal vector.Then put it in the equation $\mathbf{n}^T\mathbf{x} = \bm{c}$,where $\mathbf{n}^T$ is the unit normal vector we calculated and $\bm{c}$ is the distance from origin and $\mathbf{x}$ is a position vector of a point of the plane.
+\vspace{2mm}
+\begin{align}
+    \mathbf{n}=\begin{pmatrix}3\\5\\-6\end{pmatrix}\\
+    \norm{\mathbf{n}}=\sqrt{3^2+5^2+(-6)^2}=\sqrt{70}\\
+    \mathbf{n}=\frac{\mathbf{n}}{\norm{\mathbf{n}}}\\
+    \mathbf{n}=\frac{1}{\sqrt{70}}\begin{pmatrix}3\\5\\-6\end{pmatrix}\\
+    \bm{c}=7\\
+    \mathbf{n}^T\mathbf{x} =\bm{c}
+\end{align}
+\vspace{2mm}\\
+Substituting (4),(5) in (6) we get\\
+\begin{align}
+    \boxed{\begin{pmatrix}3 & 5 & -6\end{pmatrix}\mathbf{x}}=7\sqrt{70}
+\end{align}
+Equation 7 gives us the equation of a plane which is at a distance of 7 units from origin and normal to $\begin{pmatrix}3\\5\\-6\end{pmatrix}$
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\columnwidth]{vector.png}
+	\caption{Normal vector}
+	\label{myfig1}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\columnwidth]{plane.png}
+	\caption{Plane}
+	\label{myfig2}
+\end{figure}
+\end{document}
