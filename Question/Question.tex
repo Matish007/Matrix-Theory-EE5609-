@@ -1,0 +1,150 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{gensymb}
+
+\singlespacing
+
+
+\usepackage[cmex10]{amsmath}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+\DeclareMathOperator*{\Res}{Res}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} % \abs{} for numerisk værdi
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+
+\newcommand{\bignorm}[1]{\Bigl \| #1 \Bigr \| #1}
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+
+
+\begin{document}
+\begin{center}
+\huge Question\\
+
+\large Matish Singh Tanwar\\
+\large AI20MTECH11005\\
+\end{center}
+\vspace{1.0cm}
+\begin{abstract}
+This document solves the system of linear equations using Gaussian Elimination\\
+\end{abstract}
+\vspace{0.5cm}
+Download all latex codes from 
+\begin{lstlisting}
+https://github.com/Matish007/Matrix-Theory-EE5609-/tree/master/Question
+\end{lstlisting}
+%
+\vspace{0.5mm}
+\section{Problem}
+Find all binary solutions using Gaussian Elimination of:-
+\begin{align}
+    \mathbf{x}\oplus\mathbf{z}=1\\
+     \mathbf{x}\oplus\mathbf{y}\oplus\mathbf{z}=1\\
+      \mathbf{y}\oplus\mathbf{z}=0
+\end{align}
+\section{Explanation}
+According to Gauss Elimination we will apply operations on coefficient matrix $\mathbf{A}$ such that it is converted to Upper triangular matrix $\mathbf{U}$.It will be a success if we get all 3 pivots otherwise failure.If success,then by Back Substitution,we will find the values of $\mathbf{x}$,$\mathbf{y}$,$\mathbf{z}$. We will merge $\mathbf{b}$ also in $\mathbf{A}$ , so it will become a Augmented Matrix. 
+\begin{align}
+ \mathbf{A}=\begin{pmatrix}
+1 & 0 & 1\\
+1 & 1 & 1\\
+0 & 1 & 1
+\end{pmatrix}\\
+\mathbf{b}=\begin{pmatrix}
+1\\
+1\\
+0
+\end{pmatrix}\\
+\mathbf{A}|\mathbf{b}=\left(\begin{array}{ccc|c}  
+ 1 & 0 & 1 & 1\\  
+ 1 & 1 & 1 & 1\\
+ 0 & 1 & 1 & 0
+\end{array}\right)
+\end{align}
+where equation (4) is our coefficient matrix and equation (6) is our Augmented Matrix\\
+Now,applying operations on the augmented matrix:-
+\begin{align}
+   \left(\begin{array}{ccc|c}  
+ 1 & 0 & 1 & 1\\  
+ 1 & 1 & 1 & 1\\
+ 0 & 1 & 1 & 0
+\end{array}\right)\xleftrightarrow[]{R2\leftarrow R2-R1} \left(\begin{array}{ccc|c}  
+ 1 & 0 & 1 & 1\\  
+ 0 & 1 & 0 & 0\\
+ 0 & 1 & 1 & 0
+\end{array}\right)\xleftrightarrow[]{R3\leftarrow R3-R2}\left(\begin{array}{ccc|c}  
+ 1 & 0 & 1 & 1\\  
+ 0 & 1 & 0 & 0\\
+ 0 & 0 & 1 & 0
+\end{array}\right)
+\end{align}
+Equation (7) final result is $\mathbf{U}|\mathbf{c}$
+Where $\mathbf{U}$ is Upper triangular Matrix,Coefficient Matrix $\mathbf{A}$ got converted to $\mathbf{U}$ and $\mathbf{b}$ got converted to $\mathbf{c}$.
+We converted (1),(2),(3) equations in a simplified way which is represented by $\mathbf{U}|\mathbf{c}$ matrix.Let's see what we got\\
+\begin{align}
+    \mathbf{x}\oplus\mathbf{z}=1\\
+     \mathbf{y}=0\\
+      \mathbf{z}=0
+\end{align}\\
+From equation (9) and (10) it is clear that $\mathbf{y}$=0 and $\mathbf{z}$=0\\
+Substituting (10) in (8) we get \\
+\begin{align}
+    \mathbf{x}=1
+\end{align}\\
+
+Equation (9),(10),(11) combinely is our required solution of the linear system of equations. 
+
+\end{document}
