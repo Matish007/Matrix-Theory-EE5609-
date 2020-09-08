@@ -1,5 +1,11 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+%matplotlib inline
+import seaborn as sns
+import math as m
 # set normal vector, and point on plane
-point=np.array([5,5,5])
+point=np.array([0,0,0])
 normal = np.array([3, 5,6])
 
 # a plane is a*x+b*y+c*z+d=0
