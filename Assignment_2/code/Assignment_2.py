@@ -11,7 +11,7 @@ normal = np.array([3, 5,6])
 # a plane is a*x+b*y+c*z+d=0
 # [a,b,c] is the normal. Thus, we have to calculate
 # d and we're set
-d = -7*m.sqrt(70)
+d = -7
 
 # create x,y
 xx, yy = np.meshgrid(range(10), range(10))
